@@ -3,28 +3,33 @@ import copy
 
 n = 0
 while n < 6:
-        n = int(input("Digite um número para o total de linhas e colunas. Lembre-se: Quanto maior o \nnúmero, maior a dificuldade do jogo.\n\nOBS: O número deve ser maior do que 6.\n"))
-            
-'''    
     try:
         n = int(input("Digite um numero para o total de linhas e colunas. Lembre-se: Quanto maior o \nnumero, maior a dificuldade do jogo.\n\nOBS: O numero deve ser maior do que 6.\n"))
     except:
-        print("use algarismos inteiros")
-        try:
-            n = int(input("Digite um numero para o total de linhas e colunas. Lembre-se: Quanto maior o \nnumero, maior a dificuldade do jogo.\n\nOBS: O numero deve ser maior do que 6.\n"))
-        except:
-            n = 6'''
+        print("Use algarismos inteiros")
+        
 print ("\n-----------------------------------------------------\n")
 mapa = []
 
-#pontos_barcos = open('p_barcos.docx', 'r')
+#pontos_barcos = open('p_barcos.txt', 'r')
+#tamanho_barco = open('c_barcos.txt', 'r')
 
-tamanho_barco = {6:6,
-                 5:5,
-                 4:4,
-                 3:3,
-                 2:2,
-                 1:1}
+
+tamanho_barco = eval(open('c_barcos.txt', 'r').read())
+#pontos_barcos = eval(open('p_barcos.txt', 'r').read())
+
+#pontos_barcos = open('p_barcos.txt', 'r')
+#my_dict = eval(pontos_barcos.read())
+
+#tamanho_barco = open('c_barcos.txt', 'r')
+#my_dict = eval(tamanho_barco.read())
+
+#tamanho_barco = {6:6,
+#                 5:5,
+#                 4:4,
+#                 3:3,
+#                 2:2,
+#                 1:1}
 
 pontos_barcos = {6:15,
                  5:10,
@@ -66,8 +71,8 @@ def random_tudo(mapa):
 def random_pos():
     p = randint(0,1) # 0 = vertical; 1= horaizontal
     return p
-navios=[6,5,4,3,2,1] #Tamanho dos Navios
 
+navios=[6,5,4,3,2,1] #Tamanho dos Navios
 
 def navio_inteiro(tamanho, mapa_pc):
     p = random_pos()
